@@ -47,5 +47,5 @@ jobs:
       - name: Upload TestProject Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: testProject-${{ matrix.os }}
+          name: results-${{ matrix.os }}-${{matrix.platform}}-${{matrix.profile}}
           path: ./testProject
