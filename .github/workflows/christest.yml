@@ -38,3 +38,9 @@ jobs:
       - name: Run MGCB
         working-directory: ./testProject
         run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./contentfile.mgcb
+     
+     - name: Upload TestProject Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: testProject-${{ matrix.os }}
+          path: ./testProject
