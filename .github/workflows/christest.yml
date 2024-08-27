@@ -11,6 +11,9 @@ jobs:
       matrix:
         # macos-14 is an M1 machine
         os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{matrix.os}}
+      cancel-in-progress: true
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
@@ -33,4 +36,4 @@ jobs:
 
       - name: Run MGCB
         working-directory: ./testProject
-        run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./configfile.mgcb
+        run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./contentfile.mgcb
