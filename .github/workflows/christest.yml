@@ -8,6 +8,7 @@ jobs:
   main:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false # Allow all matrix jobs to continue even if one fails
       matrix:
         # macos-14 is an M1 machine
         os: [ubuntu-latest, windows-latest, macos-13, macos-14]
