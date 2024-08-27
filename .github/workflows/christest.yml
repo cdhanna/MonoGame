@@ -39,7 +39,7 @@ jobs:
 
       - name: Run MGCB
         working-directory: ./testProject
-        run: MG_PLATFORM=${{matrix.platform}} MG_PROFILE=${{matrix.profile}} ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./content.mgcb
+        run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --platform=${{matrix.platform}} --profile=${{matrix.profile}} --@=./content.mgcb
      
       - name: Upload TestProject Artifacts
         uses: actions/upload-artifact@v3
