@@ -15,7 +15,7 @@ jobs:
         platform: [Android, DesktopGL, Windows, MacOSX, iOS]
         profile: [Reach, HiDef]
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-${{matrix.os}}
+      group: ${{ github.workflow }}-${{ github.ref }}-${{matrix.os}}-${{matrix.platform}}-${{matrix.profile}}
       cancel-in-progress: true
     steps:
       - name: Clone repository
