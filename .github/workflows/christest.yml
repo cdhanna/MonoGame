@@ -12,6 +12,7 @@ jobs:
       matrix:
         # macos-14 is an M1 machine
         os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+        platform: [Android, DesktopGL, Windows, MacOSX, iOS]
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}-${{matrix.os}}
       cancel-in-progress: true
@@ -37,7 +38,7 @@ jobs:
 
       - name: Run MGCB
         working-directory: ./testProject
-        run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./contentfile.mgcb
+        run: MG_PLATFORM=${{matrix.platform ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./reach.mgcb
      
       - name: Upload TestProject Artifacts
         uses: actions/upload-artifact@v3
