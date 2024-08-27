@@ -39,7 +39,7 @@ jobs:
         working-directory: ./testProject
         run: ../Artifacts/MonoGame.Content.Builder/Release/mgcb --@=./contentfile.mgcb
      
-     - name: Upload TestProject Artifacts
+      - name: Upload TestProject Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: testProject-${{ matrix.os }}
